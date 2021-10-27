@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
-
+const path = require('path');
 connectDB();
 
 app.use(express.json());
