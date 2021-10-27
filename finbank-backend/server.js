@@ -8,6 +8,8 @@ connectDB();
 
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "/client/build")));
+
 app.get("/", (req, res, next) => {
   res.send("Api running");
 });
@@ -19,7 +21,6 @@ app.use("/api/private", require("./routes/private"));
 // Error Handler Middleware
 app.use(errorHandler);
 
-app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
